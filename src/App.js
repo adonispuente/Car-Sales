@@ -5,13 +5,8 @@ import AddedFeatures from "./components/AddedFeatures";
 import AdditionalFeatures from "./components/AdditionalFeatures";
 import Total from "./components/Total";
 import { connect } from "react-redux";
-import { addFeature } from "./actions/carActions";
 
 const App = (props) => {
-  const purchaseItem = (id) => {
-    props.addFeature(id);
-  };
-
   return (
     <div className="boxes">
       <div className="box">
@@ -19,10 +14,7 @@ const App = (props) => {
         <AddedFeatures car={props.car} />
       </div>
       <div className="box">
-        <AdditionalFeatures
-          purchaseItem={purchaseItem}
-          additionalFeatures={props.additionalFeatures}
-        />
+        <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
         <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
